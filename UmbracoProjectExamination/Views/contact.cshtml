@@ -1,0 +1,114 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+
+    var breadHeadline = Model?.Value<string>("breadHeadline") ?? "Default Headline";
+    var breadName = Model?.Value<string>("breadName") ?? "Home";
+    var breadLink = Model?.Value<string>("breadLink") ?? "/";
+
+    var letUsInformation = Model?.Value<string>("letUsInformation") ?? ""; 
+    var letUsImage1 = Model?.Value<IPublishedContent>("letUsImage1")?.Url() ?? "";
+
+    var mapImage = Model?.Value<IPublishedContent>("mapImage")?.Url() ?? "";
+
+    var partner1 = Model?.Value<IPublishedContent>("partner1")?.Url() ?? "";
+    var partner2 = Model?.Value<IPublishedContent>("partner2")?.Url() ?? "";
+    var partner3 = Model?.Value<IPublishedContent>("partner3")?.Url() ?? "";
+    var partner4 = Model?.Value<IPublishedContent>("partner4")?.Url() ?? "";
+    var partner5 = Model?.Value<IPublishedContent>("partner5")?.Url() ?? "";
+    var partner6 = Model?.Value<IPublishedContent>("partner6")?.Url() ?? "";
+}
+
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>@breadHeadline</h2> <!-- This will display "About Us" -->
+            <nav>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li> <!-- Home now links to root "/" -->
+                    <li>@breadHeadline</li> <!-- This will display "About Us" with custom color -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="let-us-section-2">
+    <div class="container">
+        <div class="let-us-content">
+            <!-- Images Section -->
+            <div class="let-us-images">
+                <img src="@letUsImage1" alt="Image 1" class="image-1">
+            </div>
+
+            <!-- Information Section -->
+            <div class="let-us-info">
+                <h2>Let us know about your next project</h2>
+                
+                <!-- Office Location -->
+                <p><strong><i class="fas fa-map-marker-alt"></i> Office location</strong></p>
+                <p>Klarabergsviadukten 90, 111 52 Stockholm</p>
+                
+                <!-- Phone Number -->
+                <p><strong><i class="fas fa-phone-alt"></i> Phone number</strong></p>
+                <p>+46 8 123 456 75</p>
+                
+                <!-- E-mail Address -->
+                <p><strong><i class="far fa-envelope"></i> E-mail address</strong></p>
+                <p>sales@onatrix.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="map-section">
+    <div class="map-image">
+        <img src="@mapImage" alt="Map image">
+    </div> 
+
+    <!-- Form Container Overlay -->
+    <div class="form-over-map-overlay">
+        <div class="form-over-map-content">
+            <h6 class="form-over-map-request">REQUEST A CALL BACK</h6> <!-- Changed from <p> to <h6> and updated style -->
+            <h2>Let us know about your next project</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur, ligula semper sagittis lobortis, eros metus efficitur purus</p>
+            
+            <form action="#" class="form-over-map">
+                <div class="form-over-map-row">
+                    <input type="text" placeholder="Name" class="italic-input" required>
+                    <input type="text" placeholder="Phone" class="italic-input" required>
+                </div>
+                <div class="form-over-map-row">
+                    <input type="email" placeholder="Email address" class="italic-input" required>
+                    <select required>
+                        <option value="" disabled selected>Service Type</option>
+                        <option value="financial-consulting">Financial consulting</option>
+                        <option value="business-planning">Business planning</option>
+                        <option value="risk-analysis">Risk analysis</option>
+                    </select>
+                </div>
+                <div class="form-over-map-button-container">
+                    <button type="submit" class="form-over-map-submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="partners" class="partner-section">
+    <div class="partners-grid">
+        <img src="@partner1" alt="Partner 1 Logo">
+        <img src="@partner2" alt="Partner 2 Logo">
+        <img src="@partner3" alt="Partner 3 Logo">
+        <img src="@partner4" alt="Partner 4 Logo">
+        <img src="@partner5" alt="Partner 5 Logo">
+        <img src="@partner6" alt="Partner 6 Logo">
+    </div>
+</section>

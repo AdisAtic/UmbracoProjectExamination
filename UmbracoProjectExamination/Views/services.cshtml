@@ -1,0 +1,166 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+
+    var breadHeadline = Model?.Value<string>("breadHeadline") ?? "Our Services";
+    var breadName = Model?.Value<string>("breadName") ?? "Home";
+    var breadLink = Model?.Value<string>("breadLink") ?? "/";
+
+
+     // Define variables for the services section
+    var servicesTitle = Model?.Value<string>("ourServicesTitle") ?? "";
+    var servicesHeadline = Model?.Value<string>("ourServicesHeadline") ?? "";
+    
+    // Service 1
+    var serviceImage1 = Model?.Value<IPublishedContent>("serviceImage1")?.Url() ?? "";
+    var serviceTitle1 = Model?.Value<string>("serviceTitle1") ?? "";
+    var serviceDescription1 = Model?.Value<string>("serviceDescription1") ?? "";
+    
+    // Service 2
+    var serviceImage2 = Model?.Value<IPublishedContent>("serviceImage2")?.Url() ?? "";
+    var serviceTitle2 = Model?.Value<string>("serviceTitle2") ?? "";
+    var serviceDescription2 = Model?.Value<string>("serviceDescription2") ?? "";
+
+    // Service 3
+    var serviceImage3 = Model?.Value<IPublishedContent>("serviceImage3")?.Url() ?? "";
+    var serviceTitle3 = Model?.Value<string>("serviceTitle3") ?? "";
+    var serviceDescription3 = Model?.Value<string>("serviceDescription3") ?? "";
+
+    var serviceImage4 = Model?.Value<IPublishedContent>("serviceImage4")?.Url() ?? "";
+    var serviceTitle4 = Model?.Value<string>("serviceTitle4") ?? "";
+    var serviceDescription4 = Model?.Value<string>("serviceDescription4") ?? "";
+
+    var serviceImage5 = Model?.Value<IPublishedContent>("serviceImage5")?.Url() ?? "";
+    var serviceTitle5 = Model?.Value<string>("serviceTitle5") ?? "";
+    var serviceDescription5 = Model?.Value<string>("serviceDescription5") ?? "";
+
+    var serviceImage6 = Model?.Value<IPublishedContent>("serviceImage6")?.Url() ?? "";
+    var serviceTitle6 = Model?.Value<string>("serviceTitle6") ?? "";
+    var serviceDescription6 = Model?.Value<string>("serviceDescription6") ?? "";
+
+    var letUsInformation = Model?.Value<string>("letUsInformation") ?? ""; 
+    var letUsImage1 = Model?.Value<IPublishedContent>("letUsImage1")?.Url() ?? "";
+    var letUsImage2 = Model?.Value<IPublishedContent>("letUsImage2")?.Url() ?? "";
+    var letUsImage3 = Model?.Value<IPublishedContent>("letUsImage3")?.Url() ?? "";
+}
+
+
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>@breadHeadline</h2> <!-- This will display "About Us" -->
+            <nav>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li> <!-- Home now links to root "/" -->
+                    <li>@breadHeadline</li> <!-- This will display "About Us" with custom color -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section id="services" class="services-section services-section-2">
+    <div class="container">
+        <!-- Services Title -->
+        <div class="services-header">
+            <h6>@servicesTitle</h6>
+            <h2>@servicesHeadline</h2>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+           <div class="service-item">
+                <a href="@Url.Content("/risk-management")">
+                <h4>@serviceTitle1</h4>
+                <div class="service-image">
+                    <img src="@serviceImage1" alt="@serviceTitle1">
+                </div>
+                <p>@serviceDescription1</p>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-item">
+                <h4>@serviceTitle2</h4>
+                <div class="service-image">
+                    <img src="@serviceImage2" alt="@serviceTitle2">
+                </div>
+                <p>@serviceDescription2</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-item">
+                <h4>@serviceTitle3</h4>
+                <div class="service-image">
+                    <img src="@serviceImage3" alt="@serviceTitle3">
+                </div>
+                <p>@serviceDescription3</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-item">
+                <h4>@serviceTitle4</h4>
+                <div class="service-image">
+                    <img src="@serviceImage4" alt="@serviceTitle4">
+                </div>
+                <p>@serviceDescription4</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-item">
+                <h4>@serviceTitle5</h4>
+                <div class="service-image">
+                    <img src="@serviceImage5" alt="@serviceTitle5">
+                </div>
+                <p>@serviceDescription5</p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-item">
+                <h4>@serviceTitle6</h4>
+                <div class="service-image">
+                    <img src="@serviceImage6" alt="@serviceTitle6">
+                </div>
+                <p>@serviceDescription6</p>
+            </div>
+        </div>
+              <div class="pagination">
+            <a href="#" class="prev disabled">Prev</a>
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="next">Next</a>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section class="let-us-section">
+    <div class="container">
+        <div class="let-us-content">
+            <!-- Images Section -->
+            <div class="let-us-images">
+                <img src="@letUsImage1" alt="Image 1" class="image-1">
+            </div>
+
+            <!-- Information Section -->
+            <div class="let-us-info">
+                <h2>Let us know about your next project</h2>
+                
+                <!-- Office Location -->
+                <p><strong><i class="fas fa-map-marker-alt"></i> Office location</strong></p>
+                <p>Klarabergsviadukten 90, 111 52 Stockholm</p>
+                
+                <!-- Phone Number -->
+                <p><strong><i class="fas fa-phone-alt"></i> Phone number</strong></p>
+                <p>+46 8 123 456 75</p>
+                
+                <!-- E-mail Address -->
+                <p><strong><i class="far fa-envelope"></i> E-mail address</strong></p>
+                <p>sales@onatrix.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+

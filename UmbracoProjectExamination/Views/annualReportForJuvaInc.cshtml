@@ -1,0 +1,162 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = "mainLayout.cshtml";
+
+    var breadHeadline = Model?.Value<string>("breadHeadline") ?? "Risk Management"; // Current page title
+    var breadSecondName = Model?.Value<string>("breadSecondName") ?? "Risk Management"; // The second breadcrumb is the current page
+
+    var juvaDateParagraph = Model?.Value<string>("juvaDateParagraph") ?? "June 15, 2024"; 
+    var juvaRichText = Model?.Value<string>("juvaRichText") ?? ""; 
+    var juvaIncTags = Model?.Value<IEnumerable<string>>("juvaIncTags") ?? Enumerable.Empty<string>();
+
+    var letUsInformation = Model?.Value<string>("letUsInformation") ?? ""; 
+    var letUsImage1 = Model?.Value<IPublishedContent>("letUsImage1")?.Url() ?? "";
+
+    // Recent Projects and Side Images
+    var juvaSideImage1 = Model?.Value<IPublishedContent>("juvaSideImage1")?.Url() ?? "";
+    var juvaSideImage2 = Model?.Value<IPublishedContent>("juvaSideImage2")?.Url() ?? "";
+    var juvaSideImage3 = Model?.Value<IPublishedContent>("juvaSideImage3")?.Url() ?? "";
+    var juvaSideImage4 = Model?.Value<IPublishedContent>("juvaSideImage4")?.Url() ?? "";
+    var juvaTagsSecond = Model?.Value<IEnumerable<string>>("juvaTagsSecond") ?? Enumerable.Empty<string>();
+}
+
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>@breadHeadline</h2> <!-- Displays the headline for the current page -->
+            <nav>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li> <!-- Link to the Home page -->
+                    <li><a href="@Url.Content("/projects")">Projects</a></li> <!-- Link to the projects page -->
+                    <li>@breadHeadline</li> <!-- This is the current page breadcrumb, displaying "Risk Management" -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="juva-inc-section">
+    <div class="juva-inc-wrapper">
+         <!-- Left Side: Juva Inc Content -->
+    <div class="juva-inc-content">
+        <!-- Juva Date Paragraph -->
+        <p class="juva-date-paragraph">
+            <i class="fas fa-calendar-alt"></i> @juvaDateParagraph
+        </p>
+
+        <!-- Juva Rich Text -->
+        <div class="juva-rich-text">
+            @Html.Raw(juvaRichText) <!-- Displays the rich text content for Juva Inc -->
+        </div>
+
+        <!-- First Tags Section (inline tags without border) -->
+        <div class="first-tags-container">
+            <span class="tag-label">Tags:</span>
+            <div class="first-tags-list">
+                @foreach (var tag in juvaIncTags)
+                {
+                    <span class="first-tag-item">@tag</span>
+                }
+            </div>
+        </div>
+    </div>
+
+        <!-- Right Side: Recent Projects and Tags -->
+        <div class="juva-side-section">
+            <!-- Recent Projects Section -->
+            <div class="recent-projects">
+                <h4>Recent projects</h4>
+                
+                <!-- Project Item 1 -->
+                <div class="project-item-side">
+                    <img src="@juvaSideImage1" alt="Project Image 1" class="project-image-side">
+                    <div class="project-info-side">
+                        <h5>Annual Report for Juva Inc.</h5>
+                        <p><i class="fas fa-calendar-alt"></i> June 15, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Project Item 2 -->
+                <div class="project-item-side">
+                    <img src="@juvaSideImage2" alt="Project Image 2" class="project-image-side">
+                    <div class="project-info-side">
+                        <h5>Business Insights for SP Group Inc.</h5>
+                        <p><i class="fas fa-calendar-alt"></i> May 17, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Project Item 3 -->
+                <div class="project-item-side">
+                    <img src="@juvaSideImage3" alt="Project Image 3" class="project-image-side">
+                    <div class="project-info-side">
+                        <h5>Financial Advisors to Irra Group Inc.</h5>
+                        <p><i class="fas fa-calendar-alt"></i> February 6, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Project Item 4 -->
+                <div class="project-item-side">
+                    <img src="@juvaSideImage4" alt="Project Image 4" class="project-image-side">
+                    <div class="project-info-side">
+                        <h5>Budget Planning for Buccura Inc.</h5>
+                        <p><i class="fas fa-calendar-alt"></i> January 3, 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Tags Section -->
+            <div class="side-tags-container">
+                  <h4>Tags</h4>
+    <div class="tags-list-two">
+        <a href="#" class="tag-item">Report</a>
+        <a href="#" class="tag-item">Business Plans</a>
+        <a href="#" class="tag-item">Insights</a>
+        <a href="#" class="tag-item">Business</a>
+        <a href="#" class="tag-item">App</a>
+        <a href="#" class="tag-item">Project</a>
+        <a href="#" class="tag-item">Finance</a>
+        <a href="#" class="tag-item">Pricing</a>
+    </div>
+                <div class="support-box-two">
+                    <h3>How can we help you?</h3>
+                    <p>Online support 24/7, we are here to help you</p>
+                    <div class="email-input">
+                        <input type="email" placeholder="E-mail address" class="email-field">
+                        <i class="fas fa-envelope envelope-icon"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<section class="let-us-section">
+    <div class="container">
+        <div class="let-us-content">
+            <!-- Images Section -->
+            <div class="let-us-images">
+                <img src="@letUsImage1" alt="Image 1" class="image-1">
+            </div>
+
+            <!-- Information Section -->
+            <div class="let-us-info">
+                <h2>Let us know about your next project</h2>
+                
+                <!-- Office Location -->
+                <p><strong><i class="fas fa-map-marker-alt"></i> Office location</strong></p>
+                <p>Klarabergsviadukten 90, 111 52 Stockholm</p>
+                
+                <!-- Phone Number -->
+                <p><strong><i class="fas fa-phone-alt"></i> Phone number</strong></p>
+                <p>+46 8 123 456 75</p>
+                
+                <!-- E-mail Address -->
+                <p><strong><i class="far fa-envelope"></i> E-mail address</strong></p>
+                <p>sales@onatrix.com</p>
+            </div>
+        </div>
+    </div>
+</section>

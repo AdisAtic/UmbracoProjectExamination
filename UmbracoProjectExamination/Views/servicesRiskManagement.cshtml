@@ -1,0 +1,123 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+@{
+    Layout = "mainLayout.cshtml";
+
+    // Dynamic variables from Umbraco
+    var breadHeadline = Model?.Value<string>("breadHeadline") ?? "Risk Management"; // Current page title
+    var breadSecondName = Model?.Value<string>("breadSecondName") ?? "Risk Management"; // The second breadcrumb is the current page
+
+    var riskAboutImage = Model?.Value<IPublishedContent>("riskAboutImage")?.Url() ?? "";
+    var riskAboutUsHeader = Model?.Value<string>("riskAboutUsHeader") ?? "About Us";
+    var riskSmallParagraph = Model?.Value<string>("riskSmallParagraph") ?? "";
+    
+    // Main Content (Risk Management Section)
+    var riskRiskManagement = Model?.Value<string>("riskRiskManagement") ?? ""; 
+
+    // Form Fields for Question Section
+    var questionField = Model?.Value<string>("question") ?? ""; // Your question text field
+
+    var letUsInformation = Model?.Value<string>("letUsInformation") ?? ""; 
+    var letUsImage1 = Model?.Value<IPublishedContent>("letUsImage1")?.Url() ?? "";
+}
+
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>@breadHeadline</h2> <!-- Displays the headline for the current page -->
+            <nav>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li> <!-- Link to the Home page -->
+                    <li><a href="@Url.Content("/services")">Services</a></li> <!-- Link to the services page -->
+                    <li>@breadHeadline</li> <!-- This is the current page breadcrumb, displaying "Risk Management" -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="risk-management-section">
+    <div class="container">
+        <div class="risk-content-wrapper">
+            <!-- Left Side Content -->
+            <div class="about-us-wrapper">
+                <h3>@riskAboutUsHeader</h3> <!-- The "About Us" header goes above the image -->
+                <div class="about-us">
+                    <img src="@riskAboutImage" alt="Risk About Image" class="risk-about-image" />
+                </div>
+                <p>@riskSmallParagraph</p> <!-- The small paragraph goes under the image -->
+                
+                <!-- Support Box -->
+                <div class="support-box">
+                    <h3>How can we help you?</h3>
+                    <p>Online support 24/7, we are here to help you</p>
+                    <div class="email-input">
+                        <input type="email" placeholder="E-mail address" class="email-field">
+                        <i class="fas fa-envelope envelope-icon"></i> <!-- Move the icon outside the placeholder -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Risk Content -->
+            <div class="risk-content">
+                @Html.Raw(riskRiskManagement) <!-- Displays the rich text content for Risk Management -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="question-section">
+    <div class="container">
+        <!-- Section Header -->
+        <h2>Have a question?</h2>
+        
+        <!-- Form Section -->
+        <form action="/submit-question" method="POST" class="question-form">
+            <!-- Input fields for Name and Email -->
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            
+            <!-- Textarea for the Question -->
+            <div class="form-row">
+                <textarea name="question" placeholder="@questionField" required></textarea>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+
+<section class="let-us-section">
+    <div class="container">
+        <div class="let-us-content">
+            <!-- Images Section -->
+            <div class="let-us-images">
+                <img src="@letUsImage1" alt="Image 1" class="image-1">
+            </div>
+
+            <!-- Information Section -->
+            <div class="let-us-info">
+                <h2>Let us know about your next project</h2>
+                
+                <!-- Office Location -->
+                <p><strong><i class="fas fa-map-marker-alt"></i> Office location</strong></p>
+                <p>Klarabergsviadukten 90, 111 52 Stockholm</p>
+                
+                <!-- Phone Number -->
+                <p><strong><i class="fas fa-phone-alt"></i> Phone number</strong></p>
+                <p>+46 8 123 456 75</p>
+                
+                <!-- E-mail Address -->
+                <p><strong><i class="far fa-envelope"></i> E-mail address</strong></p>
+                <p>sales@onatrix.com</p>
+            </div>
+        </div>
+    </div>
+</section>

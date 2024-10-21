@@ -1,0 +1,213 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = "mainLayout.cshtml";
+    
+    // Get the values from Umbraco fields
+    var breadHeadline = Model?.Value<string>("breadHeadline") ?? "Default Headline";
+    var breadName = Model?.Value<string>("breadName") ?? "Home";
+    var breadLink = Model?.Value<string>("breadLink") ?? "/";
+
+         // Tina Fox Section Variables
+    var tinaFoxStatement = Model?.Value<string>("tinaFoxStatement") ?? ""; 
+    var tinaFoxContent = Model?.Value<string>("tinaFoxContent") ?? ""; 
+    var tinaFoxImage = Model?.Value<IPublishedContent>("tinaFoxImage")?.Url() ?? ""; 
+
+    var reviewHeader1 = Model?.Value<string>("reviewHeader1") ?? "";
+    var reviewHeader2 = Model?.Value<string>("reviewHeader2") ?? "";
+    var reviewParagraph = Model?.Value<string>("reviewParagraph") ?? "";
+    var reviewRater = Model?.Value<string>("reviewRater") ?? "";
+    var reviewCompany = Model?.Value<string>("reviewCompany") ?? "";
+
+    var reviewRating = 5;
+
+
+        // Expert Section Variables
+    var expertHeadline1 = Model?.Value<string>("expertHeadline1") ?? "Our Experts";
+    var expertHeadline2 = Model?.Value<string>("expertHeadline2") ?? "Meet our team of professionals";
+    
+    var expertImage1 = Model?.Value<IPublishedContent>("expertImage1")?.Url() ?? "";
+    var expertName1 = Model?.Value<string>("expertName1") ?? "Expert Name";
+    var expertRole1 = Model?.Value<string>("expertRole1") ?? "Expert Role";
+
+    var expertImage2 = Model?.Value<IPublishedContent>("expertImage2")?.Url() ?? "";
+    var expertName2 = Model?.Value<string>("expertName2") ?? "Expert Name";
+    var expertRole2 = Model?.Value<string>("expertRole2") ?? "Expert Role";
+
+    var expertImage3 = Model?.Value<IPublishedContent>("expertImage3")?.Url() ?? "";
+    var expertName3 = Model?.Value<string>("expertName3") ?? "Expert Name";
+    var expertRole3 = Model?.Value<string>("expertRole3") ?? "Expert Role";
+
+    var expertImage4 = Model?.Value<IPublishedContent>("expertImage4")?.Url() ?? "";
+    var expertName4 = Model?.Value<string>("expertName4") ?? "Expert Name";
+    var expertRole4 = Model?.Value<string>("expertRole4") ?? "Expert Role";
+
+    var expertImage5 = Model?.Value<IPublishedContent>("expertImage5")?.Url() ?? "";
+    var expertName5 = Model?.Value<string>("expertName5") ?? "Expert Name";
+    var expertRole5 = Model?.Value<string>("expertRole5") ?? "Expert Role";
+
+    var expertImage6 = Model?.Value<IPublishedContent>("expertImage6")?.Url() ?? "";
+    var expertName6 = Model?.Value<string>("expertName6") ?? "Expert Name";
+    var expertRole6 = Model?.Value<string>("expertRole6") ?? "Expert Role";
+
+    var expertImage7 = Model?.Value<IPublishedContent>("expertImage7")?.Url() ?? "";
+    var expertName7 = Model?.Value<string>("expertName7") ?? "Expert Name";
+    var expertRole7 = Model?.Value<string>("expertRole7") ?? "Expert Role";
+
+           // Let Us Section Variables
+    var letUsInformation = Model?.Value<string>("letUsInformation") ?? ""; 
+    var letUsImage1 = Model?.Value<IPublishedContent>("letUsImage1")?.Url() ?? "";
+    var letUsImage2 = Model?.Value<IPublishedContent>("letUsImage2")?.Url() ?? "";
+    var letUsImage3 = Model?.Value<IPublishedContent>("letUsImage3")?.Url() ?? "";
+
+}
+
+
+<!-- Breadcrumb Section -->
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>@breadHeadline</h2> <!-- This will display "About Us" -->
+            <nav>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li> <!-- Home now links to root "/" -->
+                    <li>@breadHeadline</li> <!-- This will display "About Us" with custom color -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="statement-section">
+    <div class="container">
+        <div class="statement-content">
+            <!-- Left: Image and Caption -->
+            <div class="tina-image">
+                @Html.Raw(tinaFoxStatement) <!-- This contains the image and caption rich text -->
+            </div>
+
+            <!-- Right: Statement and Content -->
+            <div class="tina-content">
+                @Html.Raw(tinaFoxContent) <!-- This contains the quote and text -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="review-section">
+    <div class="container">
+        <!-- Review Header 1 -->
+        <h6>@reviewHeader1</h6>
+
+        <!-- Review Header 2 -->
+        <h2>@reviewHeader2</h2>
+
+        <!-- Review Paragraph -->
+        <p>@reviewParagraph</p>
+
+        <!-- Review Rating (5 stars) -->
+        <div class="review-rating">
+            @for (int i = 0; i < 5; i++)
+            {
+                <i class="fas fa-star"></i>
+            }
+        </div>
+
+        <!-- Review Rater -->
+        <p class="review-rater">@reviewRater</p>
+
+        <!-- Review Company -->
+        <p class="review-company">@reviewCompany</p>
+    </div>
+</section>
+
+<section class="expert-section">
+    <div class="container">
+        <!-- Expert Headline -->
+        <h6>@expertHeadline1</h6>
+        <h2>@expertHeadline2</h2>
+
+        <div class="experts">
+            <!-- Expert 1 -->
+            <div class="expert">
+                <img src="@expertImage1" alt="@expertName1">
+                <h4>@expertName1</h4>
+                <p>@expertRole1</p>
+            </div>
+
+            <!-- Expert 2 -->
+            <div class="expert">
+                <img src="@expertImage2" alt="@expertName2">
+                <h4>@expertName2</h4>
+                <p>@expertRole2</p>
+            </div>
+
+            <!-- Expert 3 -->
+            <div class="expert">
+                <img src="@expertImage3" alt="@expertName3">
+                <h4>@expertName3</h4>
+                <p>@expertRole3</p>
+            </div>
+
+            <!-- Expert 4 -->
+            <div class="expert">
+                <img src="@expertImage4" alt="@expertName4">
+                <h4>@expertName4</h4>
+                <p>@expertRole4</p>
+            </div>
+
+            <!-- Expert 5 -->
+            <div class="expert">
+                <img src="@expertImage5" alt="@expertName5">
+                <h4>@expertName5</h4>
+                <p>@expertRole5</p>
+            </div>
+
+            <!-- Expert 6 -->
+            <div class="expert">
+                <img src="@expertImage6" alt="@expertName6">
+                <h4>@expertName6</h4>
+                <p>@expertRole6</p>
+            </div>
+
+            <!-- Expert 7 -->
+            <div class="expert">
+                <img src="@expertImage7" alt="@expertName7">
+                <h4>@expertName7</h4>
+                <p>@expertRole7</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="let-us-section">
+    <div class="container">
+        <div class="let-us-content">
+            <!-- Images Section -->
+            <div class="let-us-images">
+                <img src="@letUsImage1" alt="Image 1" class="image-1">
+            </div>
+
+            <!-- Information Section -->
+            <div class="let-us-info">
+                <h2>Let us know about your next project</h2>
+                
+                <!-- Office Location -->
+                <p><strong><i class="fas fa-map-marker-alt"></i> Office location</strong></p>
+                <p>Klarabergsviadukten 90, 111 52 Stockholm</p>
+                
+                <!-- Phone Number -->
+                <p><strong><i class="fas fa-phone-alt"></i> Phone number</strong></p>
+                <p>+46 8 123 456 75</p>
+                
+                <!-- E-mail Address -->
+                <p><strong><i class="far fa-envelope"></i> E-mail address</strong></p>
+                <p>sales@onatrix.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

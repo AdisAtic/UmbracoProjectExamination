@@ -1,0 +1,360 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+    // Define variables for the hero section
+    var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
+    var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? "";
+
+    // Define variables for the services section
+    var servicesTitle = Model?.Value<string>("ourServicesTitle") ?? "";
+    var servicesHeadline = Model?.Value<string>("ourServicesHeadline") ?? "";
+    
+    // Service 1
+    var serviceImage1 = Model?.Value<IPublishedContent>("serviceImage1")?.Url() ?? "";
+    var serviceTitle1 = Model?.Value<string>("serviceTitle1") ?? "";
+    var serviceDescription1 = Model?.Value<string>("serviceDescription1") ?? "";
+    
+    // Service 2
+    var serviceImage2 = Model?.Value<IPublishedContent>("serviceImage2")?.Url() ?? "";
+    var serviceTitle2 = Model?.Value<string>("serviceTitle2") ?? "";
+    var serviceDescription2 = Model?.Value<string>("serviceDescription2") ?? "";
+
+    // Service 3
+    var serviceImage3 = Model?.Value<IPublishedContent>("serviceImage3")?.Url() ?? "";
+    var serviceTitle3 = Model?.Value<string>("serviceTitle3") ?? "";
+    var serviceDescription3 = Model?.Value<string>("serviceDescription3") ?? "";
+
+    var serviceImage4 = Model?.Value<IPublishedContent>("serviceImage4")?.Url() ?? "";
+    var serviceTitle4 = Model?.Value<string>("serviceTitle4") ?? "";
+    var serviceDescription4 = Model?.Value<string>("serviceDescription4") ?? "";
+
+    var serviceImage5 = Model?.Value<IPublishedContent>("serviceImage5")?.Url() ?? "";
+    var serviceTitle5 = Model?.Value<string>("serviceTitle5") ?? "";
+    var serviceDescription5 = Model?.Value<string>("serviceDescription5") ?? "";
+
+    var serviceImage6 = Model?.Value<IPublishedContent>("serviceImage6")?.Url() ?? "";
+    var serviceTitle6 = Model?.Value<string>("serviceTitle6") ?? "";
+    var serviceDescription6 = Model?.Value<string>("serviceDescription6") ?? "";
+
+    // Add more services if needed...
+
+    var clientHeadline = Model?.Value<string>("clientHeadline") ?? "";
+    var clientSecondHeadline = Model?.Value<string>("clientSecondHeadline") ?? "";
+    var clientParagraph = Model?.Value<string>("clientParagraph") ?? "";
+    var clientButtonText = Model?.Value<string>("clientButtonText") ?? "";
+    var clientButtonUrl = Model?.Value<string>("clientButtonUrl") ?? "";
+    var clientImage1 = Model?.Value<IPublishedContent>("clientImage1")?.Url() ?? "";
+    var clientImage2 = Model?.Value<IPublishedContent>("clientImage2")?.Url() ?? "";
+
+    // Define variables for the Success Story section
+    var successStoryHeadline = Model?.Value<string>("succesStoryHeadline") ?? "";
+    var successStoryHeadline2 = Model?.Value<string>("succesStoryHeadline2") ?? ""; // Second headline
+    var successStoryNumber1 = Model?.Value<string>("succesStoryNumber1") ?? "";
+    var successStoryParagraph1 = Model?.Value<string>("succesStoryParagraph1") ?? "";
+    var successStoryNumber2 = Model?.Value<string>("succesStoryNumber2") ?? "";
+    var successStoryParagraph2 = Model?.Value<string>("succesStoryParagraph2") ?? "";
+    var successStoryNumber3 = Model?.Value<string>("succesStoryNumber3") ?? "";
+    var successStoryParagraph3 = Model?.Value<string>("succesStoryParagraph3") ?? "";
+    var successStoryImage1 = Model?.Value<IPublishedContent>("succesStoryImage1")?.Url() ?? "";
+    var successStoryImage2 = Model?.Value<IPublishedContent>("succesStoryImage2")?.Url() ?? "";
+
+      // Define variables for the Projects section
+    var projectsHeadline1 = Model?.Value<string>("projectsHeadline1") ?? "";
+    var projectsHeadline2 = Model?.Value<string>("projectsHeadline2") ?? "";
+    
+    // Project 1
+    var projectImage1 = Model?.Value<IPublishedContent>("projectsImage1")?.Url() ?? "";
+    var projectImageHeadline1 = Model?.Value<string>("projectsImageHeadline1") ?? "";
+    var projectImageParagraph1 = Model?.Value<string>("projectsImageParagraph1") ?? "";
+
+    // Project 2
+    var projectImage2 = Model?.Value<IPublishedContent>("projectsImage2")?.Url() ?? "";
+    var projectImageHeadline2 = Model?.Value<string>("projectsImageHeadline2") ?? "";
+    var projectImageParagraph2 = Model?.Value<string>("projectsImageParagraph2") ?? "";
+
+    // Project 3
+    var projectImage3 = Model?.Value<IPublishedContent>("projectsImage3")?.Url() ?? "";
+    var projectImageHeadline3 = Model?.Value<string>("projectsImageHeadline3") ?? "";
+    var projectImageParagraph3 = Model?.Value<string>("projectsImageParagraph3") ?? "";
+
+    // Project 4
+    var projectImage4 = Model?.Value<IPublishedContent>("projectsImage4")?.Url() ?? "";
+    var projectImageHeadline4 = Model?.Value<string>("projectsImageHeadline4") ?? "";
+    var projectImageParagraph4 = Model?.Value<string>("projectsImageParagraph4") ?? "";
+
+    var partner1 = Model?.Value<IPublishedContent>("partner1")?.Url() ?? "";
+    var partner2 = Model?.Value<IPublishedContent>("partner2")?.Url() ?? "";
+    var partner3 = Model?.Value<IPublishedContent>("partner3")?.Url() ?? "";
+    var partner4 = Model?.Value<IPublishedContent>("partner4")?.Url() ?? "";
+    var partner5 = Model?.Value<IPublishedContent>("partner5")?.Url() ?? "";
+    var partner6 = Model?.Value<IPublishedContent>("partner6")?.Url() ?? "";
+    
+
+}
+
+<section id="hero-Slider" class="hero" style="background-image: url('@backgroundImage');">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1 class="headline">@Model?.Value("heroHeadline")</h1>
+                <p class="ingress">@Model?.Value("heroText")</p>
+                <a href="@Model?.Value("heroButtonUrl")" class="btn btn-primary">@Model?.Value("heroButtonText")</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about-us" class="about-us">
+    <div class="container">
+        <div class="content-grid">
+            <!-- Left Content -->
+            <div class="content">
+                <div class="headline">
+                    <h6>@Model.Value("aboutSectionTitle")</h6>
+                    <h2>@Model.Value("aboutHeadline")</h2>
+                </div>
+                <blockquote class="quote">
+                    <p>@Model.Value("aboutQuote")</p>
+                </blockquote>
+                <p>@Model.Value("aboutText")</p>
+                <div class="signature-container">
+                    <div class="signature">
+                        <img class="signature-image" src="@signatureImage" alt="@Model.Value("aboutSignature")">
+                        <div class="clarification"></div>
+                        <p class="name">@Model.Value("aboutSignature")</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Container -->
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Request a call back</h3>
+                </div>
+                <div class="form-header-p">
+                    <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+                </div>
+                <form action="/submit-form" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <select name="service">
+                            <option value="">Financial consulting</option>
+                            <option value="investment">Investment</option>
+                            <option value="other">Other Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services-section">
+    <div class="container">
+        <!-- Services Title -->
+        <div class="services-header">
+            <h6>@servicesTitle</h6>
+            <h2>@servicesHeadline</h2>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-item">
+                <a href="@Url.Content("/risk-management")">
+                <h4>@serviceTitle1</h4>
+                <div class="service-image">
+                    <img src="@serviceImage1" alt="@serviceTitle1">
+                </div>
+                <p>@serviceDescription1</p>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-item">
+                <h4>@serviceTitle2</h4>
+                <div class="service-image">
+                    <img src="@serviceImage2" alt="@serviceTitle2">
+                </div>
+                <p>@serviceDescription2</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-item">
+                <h4>@serviceTitle3</h4>
+                <div class="service-image">
+                    <img src="@serviceImage3" alt="@serviceTitle3">
+                </div>
+                <p>@serviceDescription3</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-item">
+                <h4>@serviceTitle4</h4>
+                <div class="service-image">
+                    <img src="@serviceImage4" alt="@serviceTitle4">
+                </div>
+                <p>@serviceDescription4</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-item">
+                <h4>@serviceTitle5</h4>
+                <div class="service-image">
+                    <img src="@serviceImage5" alt="@serviceTitle5">
+                </div>
+                <p>@serviceDescription5</p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-item">
+                <h4>@serviceTitle6</h4>
+                <div class="service-image">
+                    <img src="@serviceImage6" alt="@serviceTitle6">
+                </div>
+                <p>@serviceDescription6</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Client Section -->
+<section id="client-section" class="client-section">
+    <div class="container">
+        <div class="client-header">
+            <h2>@clientHeadline</h2>
+            <h2>@clientSecondHeadline</h2>
+            <p>@clientParagraph</p>
+            <a href="@clientButtonUrl" class="btn btn-primary">@clientButtonText</a>
+        </div>
+
+        <div class="client-images">
+            <div class="client-image1">
+                <img src="@clientImage1" alt="Client Image 1">
+            </div>
+            <div class="client-image2">
+                <img src="@clientImage2" alt="Client Image 2">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="success-story" class="success-story-section">
+    <div class="container">
+        <!-- Success Header -->
+        <div class="success-header">
+            <h6>@successStoryHeadline</h6>
+            <h3>@successStoryHeadline2</h3> <!-- Second headline -->
+        </div>
+        
+        <!-- Success Metrics (Numbers and Text) -->
+        <div class="success-metrics">
+            <div class="metric-item">
+                <h3>@successStoryNumber1</h3>
+                <p>@successStoryParagraph1</p>
+            </div>
+            <div class="metric-item">
+                <h3>@successStoryNumber2</h3>
+                <p>@successStoryParagraph2</p>
+            </div>
+            <div class="metric-item">
+                <h3>@successStoryNumber3</h3>
+                <p>@successStoryParagraph3</p>
+            </div>
+        </div>
+        
+        <!-- Centered Second Image Below -->
+     <div class="centered-image-wrapper">
+        <img id="success-image1" src="@successStoryImage1" alt="Success Story Image 1">
+        <img id="success-image2" src="@successStoryImage2" alt="Success Story Image 2">
+    </div>
+    
+</section>
+
+<section id="recent-projects" class="projects-section">
+    <div class="container">
+        <div class="projects-header">
+            <h6>@projectsHeadline1</h6>
+            <h2>@projectsHeadline2</h2>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-item">
+                <a href="@Url.Content("/annual-report-for-juva-inc")">
+                <div class="project-image">
+                    <img src="@projectImage1" alt="@projectImageHeadline1">
+                </div>
+                <div class="project-details">
+                    <span class="arrow-icon">&gt;</span>
+                    <h4>@projectImageHeadline1</h4>
+                    <p>@projectImageParagraph1</p>
+                </div>
+                </a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="@projectImage2" alt="@projectImageHeadline2">
+                </div>
+                <div class="project-details">
+                    <span class="arrow-icon">&gt;</span>
+                    <h4>@projectImageHeadline2</h4>
+                    <p>@projectImageParagraph2</p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="@projectImage3" alt="@projectImageHeadline3">
+                </div>
+                <div class="project-details">
+                    <span class="arrow-icon">&gt;</span>
+                    <h4>@projectImageHeadline3</h4>
+                    <p>@projectImageParagraph3</p>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="@projectImage4" alt="@projectImageHeadline4">
+                    
+                </div>
+                <div class="project-details">
+                    <span class="arrow-icon">&gt;</span>
+                    <h4>@projectImageHeadline4</h4>
+                    <p>@projectImageParagraph4</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="partners" class="partner-section">
+    <div class="partners-grid">
+        <img src="@partner1" alt="Partner 1 Logo">
+        <img src="@partner2" alt="Partner 2 Logo">
+        <img src="@partner3" alt="Partner 3 Logo">
+        <img src="@partner4" alt="Partner 4 Logo">
+        <img src="@partner5" alt="Partner 5 Logo">
+        <img src="@partner6" alt="Partner 6 Logo">
+    </div>
+</section>
+
+
+

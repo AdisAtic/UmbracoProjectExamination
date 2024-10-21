@@ -1,0 +1,87 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    Layout = null;
+    var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title} | Onatrix - Financial Solutions for Your Business" : "Onatrix - Financial Solutions for Your Business";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a576612222.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/scss/main.css">
+    <link rel="stylesheet" href="/css/scss/colors/theme.css">
+    <title>@pageTitle</title>
+</head>
+<body>
+    <!-- Topbar starts here -->
+    <header class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <p>Klarabergsviadukten 90, 111 64 Stockholm</p>
+            </div>
+            <div class="topbar-right">
+                <ul class="social-icons">
+                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- White Navigation Section (with logo and navigation links) -->
+    <header class="navigation">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="/Images/Brand.png" alt="Onatrix Logo">
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="nav-links">
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Search or any other icons can be added here -->
+                <div class="nav-actions">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Topbar ends here -->
+
+    <div class="wrapper">
+        <header></header>
+
+        <main>
+            @RenderBody()
+        </main>
+
+        <!-- Footer starts here -->
+        <footer class="footer-section">
+            <div class="container">
+                <div class="footer-content">
+                    <p>© Onatrix. All Rights Reserved. Credits to <a href="#" target="_blank" class="footer-credit">Themesflat</a></p>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer ends here -->
+    </div>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

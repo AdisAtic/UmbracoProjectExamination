@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/canadacentral/connectors/ConnectionStringsumbracoDbDSN_22673EB1B3",
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/umbracoprojecttestdbserver/databases/UmbracoProjectTest_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:umbracoDbDSN",
+      "dynamicId": null
+    }
+  }
+}

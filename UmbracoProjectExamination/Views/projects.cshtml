@@ -1,0 +1,188 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+
+    var breadHeadline = Model?.Value<string>("breadHeadline") ?? "Our Projects";
+    var breadName = Model?.Value<string>("breadName") ?? "Home";
+    var breadLink = Model?.Value<string>("breadLink") ?? "/";
+
+         // Defining variables from Umbraco fields
+    var projectImage1 = Model?.Value<IPublishedContent>("projectImage1")?.Url() ?? ""; // Project Image
+    var projectsInformation1 = Model?.Value<string>("projectsInformation1") ?? ""; // Rich text project information
+    var projectImage2 = Model?.Value<IPublishedContent>("projectImage2")?.Url() ?? ""; // Project Image
+    var projectsInformation12 = Model?.Value<string>("projectsInformation2") ?? ""; // Rich text project information
+
+    var projectImage3 = Model?.Value<IPublishedContent>("projectImage3")?.Url() ?? ""; // Project Image
+    var projectsInformation3 = Model?.Value<string>("projectsInformation3") ?? ""; // Rich text project information
+
+    var projectImage4 = Model?.Value<IPublishedContent>("projectImage4")?.Url() ?? ""; // Project Image
+    var projectsInformation4 = Model?.Value<string>("projectsInformation4") ?? ""; // Rich text project information
+
+  
+
+    var letUsInformation = Model?.Value<string>("letUsInformation") ?? ""; 
+    var letUsImage1 = Model?.Value<IPublishedContent>("letUsImage1")?.Url() ?? "";
+}
+
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <h2>@breadHeadline</h2> 
+            <nav>
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li> <!-- Home now links to root "/" -->
+                    <li>@breadHeadline</li> 
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="page4-projects-section">
+    <div class="page4-container">
+        <!-- Project Item 1 -->
+        <div class="page4-project-item">
+            <a href="@Url.Content("/annual-report-for-juva-inc")">
+            <div class="page4-project-image">
+                <img src="@projectImage1" alt="Project Image 1">
+            </div>
+            </a>
+            <div class="page4-project-info">
+                <h3>Annual Report for Juva Inc.</h3>
+                <p class="page4-project-date">
+                    <i class="fas fa-calendar-alt"></i> June 15, 2024
+                </p>
+                <p class="page4-project-description">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
+                    Sed ut perspiciatis unde omnis iste natus error.
+                </p>
+                <a href="#" class="page4-read-more">Read more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Project Item 2 -->
+        <div class="page4-project-item">
+            <div class="page4-project-image">
+                <img src="@projectImage2" alt="Project Image 2">
+            </div>
+            <div class="page4-project-info">
+                <h3>Business Insights for SP Group...</h3>
+                <p class="page4-project-date">
+                    <i class="fas fa-calendar-alt"></i> May 17, 2024
+                </p>
+                <p class="page4-project-description">
+                    Project 2 description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <a href="#" class="page4-read-more">Read more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Project Item 3 -->
+        <div class="page4-project-item">
+            <div class="page4-project-image">
+                <img src="@projectImage3" alt="Project Image 3">
+            </div>
+            <div class="page4-project-info">
+                <h3>Financial Advisors for Irra Grou...</h3>
+                <p class="page4-project-date">
+                    <i class="fas fa-calendar-alt"></i> February 6, 2024
+                </p>
+                <p class="page4-project-description">
+                    Project 3 description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <a href="#" class="page4-read-more">Read more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Project Item 4 -->
+        <div class="page4-project-item">
+            <div class="page4-project-image">
+                <img src="@projectImage4" alt="Project Image 4">
+            </div>
+            <div class="page4-project-info">
+                <h3>Budget Planning for Buccura In...</h3>
+                <p class="page4-project-date">
+                    <i class="fas fa-calendar-alt"></i> January 3, 2024
+                </p>
+                <p class="page4-project-description">
+                    Project 4 description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <a href="#" class="page4-read-more">Read more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Pagination Section -->
+        <div class="pagination">
+            <a href="#" class="prev disabled">Prev</a>
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="next">Next</a>
+        </div>
+    </div>
+
+    <!-- Tags Section (On the Right) -->
+<div class="tags-container">
+    <h4>Tags</h4>
+    <div class="tags-list">
+        <a href="#" class="tag-item">Report</a>
+        <a href="#" class="tag-item">Business plans</a>
+        <a href="#" class="tag-item">Insights</a>
+        <a href="#" class="tag-item">Business</a>
+        <a href="#" class="tag-item">App</a>
+        <a href="#" class="tag-item">Project</a>
+        <a href="#" class="tag-item">Finance</a>
+        <a href="#" class="tag-item">Pricing</a>
+    </div>
+    
+    <div class="support-box">
+        <h3>How can we help you?</h3>
+        <p>Online support 24/7, we are here to help you</p>
+        <div class="email-input">
+            <input type="email" placeholder="E-mail address" class="email-field">
+            <i class="fas fa-envelope envelope-icon"></i>
+        </div>
+    </div>
+</div>
+    
+    
+</section>
+
+
+
+
+
+
+
+<section class="let-us-section">
+    <div class="container">
+        <div class="let-us-content">
+            <!-- Images Section -->
+            <div class="let-us-images">
+                <img src="@letUsImage1" alt="Image 1" class="image-1">
+            </div>
+
+            <!-- Information Section -->
+            <div class="let-us-info">
+                <h2>Let us know about your next project</h2>
+                
+                <!-- Office Location -->
+                <p><strong><i class="fas fa-map-marker-alt"></i> Office location</strong></p>
+                <p>Klarabergsviadukten 90, 111 52 Stockholm</p>
+                
+                <!-- Phone Number -->
+                <p><strong><i class="fas fa-phone-alt"></i> Phone number</strong></p>
+                <p>+46 8 123 456 75</p>
+                
+                <!-- E-mail Address -->
+                <p><strong><i class="far fa-envelope"></i> E-mail address</strong></p>
+                <p>sales@onatrix.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
